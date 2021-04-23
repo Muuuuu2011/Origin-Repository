@@ -32,6 +32,9 @@ for i in range(len(attractionsData)):
             list2.append(list1[j])
         else:
             continue
+    separator=","#忘記看這裡https://zh-hant.hotbak.net/key/join%E5%87%BD%E6%95%B8.html
+    attFile=separator.join(list2)        
+
     #放入資料庫
     sql = "INSERT INTO attractions_data (id,name,category,description,address,transport,mrt,latitude,longitude,images) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     val = (attractionsData[i]['_id'],
@@ -43,7 +46,7 @@ for i in range(len(attractionsData)):
         attractionsData[i]['MRT'],
         attractionsData[i]['latitude'],
         attractionsData[i]['longitude'],
-        str(list2)#轉字串才能放進資料庫
+        attFile
         )
     mycursor.execute(sql, val)
     mydb.commit()   
