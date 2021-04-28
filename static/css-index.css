@@ -1,0 +1,163 @@
+
+body{
+    margin:0px;
+}
+nav>#title-box{
+    display:flex;
+    max-width:1200px;height:54px;margin: auto;
+}
+
+
+#title{
+    flex:auto;margin-bottom:0;
+    font-size:30px;font-weight: bold;
+    color: #448899;line-height:0px;
+}
+
+.menu{
+    flex:none;width: 71px;
+    font-size:16px;color: #666666;line-height:60px;
+}
+
+/*搜尋欄位*/
+
+#search-box-background{
+    width:100%;height:320px;
+    background-image:url('images/welcome\ 1.png'),linear-gradient(135deg, #AADDEE 0%, #66AABB 100%);
+    background-repeat:no-repeat;/*背景圖片不要重覆顯示（僅顯示一次）*/
+    background-position:right;/*背景圖片水平位置與垂直位置*/
+    display: flex;
+    justify-content:center;
+    align-items:center;
+
+    
+
+}
+
+
+#search-box{
+    height:149px;
+    max-width:1200px;width:90%;margin: 0 auto;
+}
+
+#search-box h3{
+    font-size:28px;width:100%;color:#F8F8F8;margin:0px;
+}
+
+#search-box p{
+    font-size:16px;color:#F8F8F8;width:100%;
+}
+
+#search-form{
+    display: flex;margin-top:25px;
+}
+
+#search-box input{
+    width:400px;height:46px;border-radius: 5px 0 0 5px;outline:none;line-height: 16px;
+    padding:0px;border:0px;
+
+}
+
+#search-box button{
+    width:60px;height:46px;
+    background-color:#448899;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer; 
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    outline:none;
+    border:none;/*不設None的話，會讓按鈕看起來是立體的*/
+}
+
+.search-btn img{
+    width:30px;
+    height:30px;
+}
+
+
+/*風景區區塊*/
+
+#attractions-box{
+    max-width:1170px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    flex-wrap:wrap;
+    
+}
+
+.attraction{
+    width:265px;
+    height:256px;
+    border-radius:5px;
+    border:solid;
+    border-color: #ebe8e8;
+    margin:30px auto 30px auto;
+    
+}
+
+.attraction img{
+    width:100%;border-radius:5px;max-width:265px;
+    height:160px;
+}
+
+.attraction h5{
+	font-size:20px;font-weight:bold;
+    margin:5px 0px 0px 5px;
+    width:100%;
+    color:#757575;
+	
+}
+
+.mrt-category{
+    display:flex;width:100%;
+    
+    color:#757575;
+}
+
+.mrt{
+    flex:auto;font-size:16px;margin-left:10px;
+}
+.category{
+    font-size:16px;flex:none;width:70px;
+}
+
+
+
+
+
+
+footer{
+    background: #757575;height:104px;display:flex;
+    flex: 0 0 auto;display: flex;justify-content:center;align-items:center;
+}
+
+
+
+@media (max-width:1200px){
+
+    #search-box-background{
+        background-position: bottom right -20%, top;
+        background-size: 55%, cover;
+        }
+
+    .attraction{
+        width:45%;
+    }
+    
+
+}
+
+@media (max-width:600px){
+
+    #search-box-background{
+        background-position: bottom right -20%, top;
+        background-size: 60%, cover;
+    }
+
+    .attraction{
+        width:90%;
+    }
+
+} 
