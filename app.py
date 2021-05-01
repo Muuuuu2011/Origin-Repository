@@ -5,8 +5,8 @@ import mysql.connector
 # 資料庫參數設定
 mydb = mysql.connector.connect(
   host="localhost",
-  user="admin",
-  password="1234",
+  user="root",
+  password="Chickenbot2011_",
   database="website"
 )
 
