@@ -21,10 +21,10 @@
                     <div id=search-box>
                         <h3>輕鬆享受台北一日悠閒</h3>
                         <p>探索每個角落，體驗城市的深度旅遊行程</p>
-                        <form id=search-form>
-                            <input type="text" placeholder="  輸入景點名稱查詢">
-                            <button><img src="../static/images/icon/icon_search.png"></button>
-                        </form>
+                        <div id=search-form>
+                            <input id=keyword type="text" placeholder="  輸入景點名稱查詢">
+                            <button id=search_button  onClick='click'><img src="../static/images/icon/icon_search.png"></button>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -40,37 +40,14 @@
                             <p class="category">風景區</p>
                         </div>
 
-                    </div>
-                    <div class="attraction">
-                        <img class="pics" src="../static/images/溫泉.jpg">
-                        <h5 class="pics-name">溫泉</h5>
-                        <div class="mrt-category">
-                            <p class="mrt">新北投</p>
-                            <p class="category">風景區</p>
-                        </div>
-                    </div>
-                    <div class="attraction">
-                        <img class="pics" src="../static/images/溫泉.jpg">
-                        <h5 class="pics-name">溫泉</h5>
-                        <div class="mrt-category">
-                            <p class="mrt">新北投</p>
-                            <p class="category">風景區</p>
-                        </div>
-                    </div>
-                    <div class="attraction">
-                        <img class="pics" src="../static/images/溫泉.jpg">
-                        <h5 class="pics-name">溫泉</h5>
-                        <div class="mrt-category">
-                            <p class="mrt">新北投</p>
-                            <p class="category">風景區</p>
-                        </div>
+                 
                     </div>-->
                 </article>
             </section>
 
 
 
-            <footer>
+            <footer id=footer>
                 <div>
                     <p>COPYRIGHT © 2021 台北一日遊</p>
                 </div>
@@ -78,6 +55,6 @@
         </div>
 
 
-        <script src="../static/js/js-index.js"></script>
+        <script src="../static/js/index.js"></script>
     </body>
 </html>
