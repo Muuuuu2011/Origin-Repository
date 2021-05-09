@@ -30,8 +30,12 @@ async function Attractions() {
         let bigBox = document.createElement("div");
         bigBox.classList.add("attraction");
 
+
+        let a = document.createElement('a')
+        a.href= "/attraction/"+data1[i].id;
+        bigBox.appendChild(a);
         let bigImg = document.createElement("img")//創造一個圖的盒子:可以把圖放進去
-        bigBox.appendChild(bigImg);//大箱子裡面有圖的盒子
+        a.appendChild(bigImg);//大箱子裡面有圖的盒子
         let imgName = document.createElement("h5")//創造一個字的盒子:可以把字放進去
         imgName.classList.add("pics-name");//字的盒子裝字進去
         let text = document.createTextNode(data1[i].name);//字
@@ -68,7 +72,7 @@ async function Attractions() {
 window.addEventListener('scroll', function (e) {
   // var footer = document.getElementById("footer");
   // var rect = footer.getBoundingClientRect();
-  if ((window.outerHeight + window.pageYOffset+1) >= document.body.offsetHeight && load_complete) {
+  if ((window.outerHeight + window.pageYOffset+10) >= document.body.offsetHeight && load_complete) {
     // getData()
     load_complete=false
     Attractions()
@@ -83,3 +87,4 @@ btn.addEventListener('click',function(e){
   load_complete=false
   Attractions(keyword,page)
 })
+
