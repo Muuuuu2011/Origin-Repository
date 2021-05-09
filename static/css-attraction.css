@@ -102,6 +102,7 @@ nav>#title-box{
     background-color: #E8E8E8;
     margin-left:10px;
     opacity:0.6;
+    
 }
 
 #booking_big_box{
@@ -323,6 +324,8 @@ footer{
 
     #booking_big_box{
         margin: auto;
+        padding-left:10px;
+        padding-right:10px;
     } 
 
 }
