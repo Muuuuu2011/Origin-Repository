@@ -13,8 +13,37 @@
                     <div id=title-box>
                         <h3 id=title>台北一日遊</h3>
                         <div class=menu>預定行程</div>
-                        <div class=menu>登入/註冊</div>
+                        <div id=signin_signup class=menu>登入/註冊
+                        </div>
+                        <div id=sign_out class=menu>登出系統
+                        </div>
+                        <div id=signIn class=user_box>
+                            <div class=decorator_bar></div>
+                                <div class=main><!--父層與子層會互相影響，如果放在登入註冊之下，監聽事件會相互連動-->
+                                    <p class=sign_title>登入會員帳號</p>
+                                    <img class=cancel_btn id=cancel_btn1 src="/static/images/Dialog/icon/icon_close.png">
+                                    <input id=sign_In_email class=keyin type="text" placeholder="  輸入電子信箱">
+                                    <input id=sign_In_password class=keyin type="text" placeholder="  輸入密碼">
+                                    <button id=signIn_button class=user_btn onclick="click">登入帳戶</button>
+                                    <p class="userText">還沒有帳戶?<div id=go_Sign_Up> 點此註冊</div></p>
+                                    <p id=signIn_Message></p>
+                                </div>
+                        </div>
+                        <div id=signUp class=user_box>
+                            <div class=decorator_bar></div>
+                            <div class=main>
+                                <p class=sign_title>註冊會員帳號
+                                <img class=cancel_btn id=cancel_btn2 src="/static/images/Dialog/icon/icon_close.png" ></p>
+                                <input  id=sign_Up_name class=keyin type="text" placeholder="  輸入姓名">
+                                <input id=sign_Up_email class=keyin type="text" placeholder="  輸入電子郵件">
+                                <input id=sign_Up_password class=keyin type="text" placeholder="  輸入密碼">
+                                <button id=signUp_button class=user_btn onclick="click">註冊新帳戶</button>
+                                <p class="userText">已經有帳戶了?</p><div id=go_Sign_In> 點此登入</div>
+                                <p id=signUp_Message></p>
+                            </div>
+                        </div>
                     </div>
+                    <div id=black_background></div>
                 </nav>
             </header>
             <section >
@@ -23,16 +52,11 @@
                         <button id="left_arrow"><img src="../static/images/Button/btn_leftArrow.png"></src></button>
                     
                         <button id="right_arrow" ><img src="../static/images/Button/btn_rightArrow.png"></button>
-                    <!--<div id="img_box">    
-                        <img class="attraction_img" src="../static/images/溫泉.jpg" >
-                    </div>-->
                         <ul id="dot">
                         </ul>
                     </div>
                     <div id="booking_big_box">
                         <div id="booking_box">
-                        <!--<h3 class="name">平安鐘</h3>
-                        <p class="booking_category_mrt">測試用文字測試用文字測試用文字測試用文字測試用文字</p>-->
                         </div>
                         <div class="details">
                             <h4>訂購導覽行程</h4>
@@ -72,15 +96,12 @@
             <hr class="line">
             <article >
                 <div id="description-box">
-                <!--<p class="description">測試用文字測試用文字測試用文字測試用文字測試用文字測試用文字測試用文字</p>-->
                 </div>
                 <h5>景點地址：</h5>
                 <div id="address-box">
-                <!--<p class="address">測試用文字測試用文字測試用文字測試用文字測試用文字</p>-->
                 </div>
                 <h5>交通方式:</h5>
                 <div id="transport-box">
-                <!--<p clss="transport">測試用文字測試用文字測試用文字測試用文字測試用文字測試用文字</p>-->
                 </div>
             </article>
             <footer id=footer>
@@ -90,5 +111,6 @@
             </footer>
         </div>
         <script src="../static/js/attraction.js"></script>
+        <script src="../static/js/login.js"></script><!--登入與註冊表單功能-->
     </body>
 </html>

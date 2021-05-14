@@ -1,9 +1,11 @@
 var items;
 
-window.onload = function getData(){
+window.onload = function (){
   //取得ID
   let getID = location.pathname.split('/')
+  console.log(getID)
   getID=parseInt(getID[2])
+  
   if(getID<=319&&getID>0){
     src='/api/attraction/'+getID;
   }else{
@@ -142,3 +144,4 @@ function imgControl(data,img){
   }) 
 
 }
+

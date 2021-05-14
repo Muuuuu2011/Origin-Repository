@@ -13,8 +13,37 @@
                     <div id=title-box>
                         <h3 id=title>台北一日遊</h3>
                         <div class=menu>預定行程</div>
-                        <div class=menu>登入/註冊</div>
+                        <div id=signin_signup class=menu>登入/註冊
+                        </div>
+                        <div id=sign_out class=menu>登出系統
+                        </div>
+                        <div id=signIn class=user_box>
+                            <div class=decorator_bar></div>
+                                <div class=main><!--父層與子層會互相影響，如果放在登入註冊之下，監聽事件會相互連動-->
+                                    <p class=sign_title>登入會員帳號</p>
+                                    <img class=cancel_btn id=cancel_btn1 src="/static/images/Dialog/icon/icon_close.png">
+                                    <input id=sign_In_email class=keyin type="text" placeholder="  輸入電子信箱">
+                                    <input id=sign_In_password class=keyin type="text" placeholder="  輸入密碼">
+                                    <button id=signIn_button class=user_btn onclick="click">登入帳戶</button>
+                                    <p class="userText">還沒有帳戶?<div id=go_Sign_Up> 點此註冊</div></p>
+                                    <p id=signIn_Message></p>
+                                </div>
+                        </div>
+                        <div id=signUp class=user_box>
+                            <div class=decorator_bar></div>
+                            <div class=main>
+                                <p class=sign_title>註冊會員帳號
+                                <img class=cancel_btn id=cancel_btn2 src="/static/images/Dialog/icon/icon_close.png" ></p>
+                                <input  id=sign_Up_name class=keyin type="text" placeholder="  輸入姓名">
+                                <input id=sign_Up_email class=keyin type="text" placeholder="  輸入電子郵件">
+                                <input id=sign_Up_password class=keyin type="text" placeholder="  輸入密碼">
+                                <button id=signUp_button class=user_btn onclick="click">註冊新帳戶</button>
+                                <p class="userText">已經有帳戶了?</p><div id=go_Sign_In> 點此登入</div>
+                                <p id=signUp_Message></p>
+                            </div>
+                        </div>
                     </div>
+                    <div id=black_background></div>
                 </nav>
 
                 <div id=search-box-background>
@@ -32,29 +61,16 @@
 
             <section>
                 <article id=attractions-box>
-                    <!--<div class="attraction">
-                        <a herf="">
-                       <img class="pics" src="../static/images/溫泉.jpg">
-                        </a>
-                        <h5 class="pics-name">溫泉</h5>
-                        <div class="mrt-category">
-                            <p class="mrt">新北投</p>
-                            <p class="category">風景區</p>
-                        </div>
-
-                 
-                    </div>-->
                 </article>
             </section>
-
-
-
             <footer id=footer>
                 <div>
                     <p>COPYRIGHT © 2021 台北一日遊</p>
                 </div>
             </footer>
         </div>
+        
         <script src="../static/js/index.js"></script>
+        <script src="../static/js/login.js"></script><!--登入與註冊表單功能-->
     </body>
 </html>

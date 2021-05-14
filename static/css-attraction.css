@@ -26,10 +26,12 @@ nav>#title-box{
 .menu{
     flex:none;width: 71px;
     font-size:16px;color: #666666;line-height:60px;
+    cursor: pointer;
 }
 
-
-
+#sign_out{
+    display:none;
+}
 
 
 /*section*/
@@ -181,6 +183,7 @@ nav>#title-box{
     line-height:16px;
     margin-left:15px;
     margin-bottom:41px;
+    cursor: pointer;
 }
 
 #charge_box{
@@ -307,6 +310,129 @@ footer{
     flex: 0 0 auto;display: flex;justify-content:center;align-items:center;
 }
 
+
+
+/*登入/註冊彈出框*/
+
+#signIn{
+    display:none;
+    position:absolute;
+    width:340px;
+    background-color: #FFFFFF;
+    left: 50%;
+    margin-left: -170px;
+    margin-top: 75px;
+    border-radius: 6px;
+    z-index:999;
+}
+
+#signUp{
+    display:none;
+    position:absolute;
+    width:340px;
+    background-color: #FFFFFF;
+    left: 50%;
+    margin-left: -170px;
+    margin-top: 75px;
+    border-radius: 6px;
+    z-index:9999;
+}
+
+.decorator_bar{
+    background: linear-gradient(270deg, #337788 100%, #66AABB 100%);
+    border-radius: 6px 6px 0px 0px;
+    width: 340px;
+    height: 10px;
+}
+
+.main{
+    max-width:310px;
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.sign_title{
+    padding-top:15px;
+    font-size:24px;
+    line-height: 24px;
+    text-align: center;
+    color:#666666;
+    width:310px;
+    font-weight: bold;
+    margin:0px;
+}
+
+.cancel_btn{
+    position: absolute;
+    right:17px;
+    top:27px;
+    width:16px;
+    height:16px;
+    cursor: pointer;
+}
+
+.keyin{
+    margin-top:10px;
+    width:310px;
+    height:47px;
+    font-size:16px;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.user_btn{
+    font-size:19px;
+    margin-top:10px;
+    width:100%;
+    height:47px;
+    color:#FFFFFF;
+    background-color: #448899;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.userText{
+    color: #666666;
+    margin-top:15px;
+}
+
+#go_Sign_In,#go_Sign_Up{
+    color: #666666;
+    margin-top:15px;
+    cursor: pointer;
+}
+
+
+#black_background{
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+    opacity: 0.3;
+    z-index:99;
+    display: none;
+}
+#signUp_Message{
+    display:none;
+    width: 100%;
+    text-align: center;
+    color: #666666;
+    font-size:18px;
+    font-weight: bold;
+}
+#signIn_Message{
+    display:none;
+    width: 100%;
+    text-align: center;
+    color: #666666;
+    font-size:18px;
+    font-weight: bold;
+}
 
 
 
