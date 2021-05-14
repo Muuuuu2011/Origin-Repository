@@ -9,7 +9,7 @@ user_api = Blueprint('user_api',__name__)
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="chickenbot2011_",
+  password="Chickenbot2011_",
   database="website"
 )
 

@@ -12,7 +12,7 @@ from routes.user_api import user_api
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="chickenbot2011_",
+  password="Chickenbot2011_",
   database="website"
 )
 
