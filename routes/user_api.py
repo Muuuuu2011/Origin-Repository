@@ -17,7 +17,7 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
 )
  
 mydb = connection_pool.get_connection()
-mycursor = mydb.cursor()
+mycursor = mydb.cursor(buffered=True)
 
 
 

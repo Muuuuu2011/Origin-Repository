@@ -15,7 +15,7 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
 )
  
 mydb = connection_pool.get_connection()
-mycursor = mydb.cursor()
+mycursor = mydb.cursor(buffered=True)
 
 attractionId_api = Blueprint('attractionId_api',__name__)
 
