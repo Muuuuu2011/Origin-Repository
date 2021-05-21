@@ -2,19 +2,21 @@ from flask import *
 import json
 import mysql.connector
 
+attractions_api = Blueprint('attractions_api',__name__)
 
 # 資料庫參數設定
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="Chickenbot2011_",
-  database="website"
+connection_pool = mysql.connector.pooling.MySQLConnectionPool(
+        pool_name = 'MySQLPool',
+        pool_size = 5,
+        host = "localhost",
+        user = "root",
+        password = "Chickenbot2011_",
+        database = "website"
 )
-
+ 
+mydb = connection_pool.get_connection()
 mycursor = mydb.cursor()
 
-
-attractions_api = Blueprint('attractions_api',__name__)
 
 @attractions_api.route("/api/attractions")
 def attractions():

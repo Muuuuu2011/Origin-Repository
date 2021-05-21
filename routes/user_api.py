@@ -11,13 +11,13 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
         pool_size = 5,
         host = "localhost",
-        user = "admin",
-        password = "1234",
+        user = "root",
+        password = "Chickenbot2011_",
         database = "website"
 )
  
 mydb = connection_pool.get_connection()
-mycursor = mydb.cursor(buffered=True)
+mycursor = mydb.cursor()
 
 
 
