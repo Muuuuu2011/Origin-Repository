@@ -3,19 +3,24 @@ from routes.attractionId_api import attractionsId
 from flask import *
 import json
 import mysql.connector
+from mysql.connector import pooling
 from routes.attractions_api import attractions_api 
 from routes.attractionId_api import attractionId_api
 from routes.user_api import user_api
+from routes.booking_api import booking_api
 
 
 # 資料庫參數設定
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="Chickenbot2011_",
-  database="website"
+connection_pool = mysql.connector.pooling.MySQLConnectionPool(
+        pool_name = 'MySQLPool',
+        pool_size = 5,
+        host = "localhost",
+        user = "root",
+        password = "Chickenbot2011_",
+        database = "website"
 )
-
+ 
+mydb = connection_pool.get_connection()
 mycursor = mydb.cursor()
 
 app=Flask(__name__)
@@ -44,7 +49,8 @@ app.register_blueprint(attractions_api)
 app.register_blueprint(attractionId_api)
 #user_api 使用者相關API:註冊、檢查狀態、登入、登出
 app.register_blueprint(user_api)
-
+#booking_api預定行程API:取得未確認訂單、新預定、刪除目前預定
+app.register_blueprint(booking_api)
 
 
 app.run(host="0.0.0.0",port=3000)

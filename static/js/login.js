@@ -1,8 +1,9 @@
+
 fetch("/api/user")
   .then((response) => {
     return response.json();
   }).then((check_result) => {
-    console.log(check_result.data)
+    //console.log(check_result.data)
     if(check_result.data!=null){
         document.getElementById("signin_signup").style.display="none";//登入成功後消失，改成顯示登出
         document.getElementById("sign_out").style.display="block"
@@ -153,4 +154,34 @@ logout_btn.addEventListener("click",function(){
                 window.location.reload();
             }
       })
+})
+
+
+let schedule_btn=document.getElementById("booking_Schedule")
+schedule_btn.addEventListener("click",function(){
+  fetch("/api/user")
+  .then((response) => {
+    return response.json();
+  }).then((check_result) => {
+    console.log(check_result.data)
+    if(check_result.data==null){
+
+      //取消隱藏的登入表單
+      signIn.style.display = "block"
+      //取消隱藏的背景黑幕
+      back_ground.style.display = "block"
+    }else{
+      window.location.replace('/booking');
+    }
+  }).catch((error) => {
+    // 錯誤
+    
+  });
+})
+
+//返回首頁
+let title_btn=document.getElementById("title")
+title_btn.addEventListener("click",function(){
+
+  window.location.replace('/');
 })

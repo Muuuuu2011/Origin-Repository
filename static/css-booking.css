@@ -1,0 +1,416 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+html,body{
+    margin:0px;
+    height:100%;
+
+}
+
+nav{
+    position: fixed;
+    height:54px;width:100%;background-color: #FFFFFF;
+    z-index:9999;
+    border-bottom:1px solid #E8E8E8;
+
+}
+
+nav>#title-box{
+    display:flex;
+    max-width:1200px;height:54px;margin:auto;
+}
+
+
+#title{
+    flex:auto;margin-bottom:0;
+    font-size:30px;font-weight: bold;
+    color: #448899;line-height:0px;
+}
+
+.menu{
+    flex:none;width: 71px;
+    font-size:16px;color: #666666;line-height:60px;
+}
+
+#sign_out{
+    display:none;
+}
+
+
+footer{
+    background: #757575;min-height:104px;display:flex;
+    flex: 0 0 auto;justify-content:center;
+}
+footer p{
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 13px;
+    font-family:'Noto Sans TC';
+    margin-top:50px;
+}
+
+
+
+/*登入/註冊彈出框*/
+
+#signIn{
+    display:none;
+    position:absolute;
+    width:340px;
+    background-color: #FFFFFF;
+    left: 50%;
+    margin-left: -170px;
+    margin-top: 75px;
+    border-radius: 6px;
+    z-index:999;
+}
+
+#signUp{
+    display:none;
+    position:absolute;
+    width:340px;
+    background-color: #FFFFFF;
+    left: 50%;
+    margin-left: -170px;
+    margin-top: 75px;
+    border-radius: 6px;
+    z-index:9999;
+}
+
+.decorator_bar{
+    background: linear-gradient(270deg, #337788 100%, #66AABB 100%);
+    border-radius: 6px 6px 0px 0px;
+    width: 340px;
+    height: 10px;
+}
+
+.main{
+    max-width:310px;
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.sign_title{
+    padding-top:15px;
+    font-size:24px;
+    line-height: 24px;
+    text-align: center;
+    color:#666666;
+    width:310px;
+    font-weight: bold;
+    margin:0px;
+}
+
+.cancel_btn{
+    position: absolute;
+    right:17px;
+    top:27px;
+    width:16px;
+    height:16px;
+    cursor: pointer;
+}
+
+.keyin{
+    margin-top:10px;
+    width:310px;
+    height:47px;
+    font-size:16px;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.user_btn{
+    font-size:19px;
+    margin-top:10px;
+    width:100%;
+    height:47px;
+    color:#FFFFFF;
+    background-color: #448899;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.userText{
+    color: #666666;
+    margin-top:15px;
+}
+
+#go_Sign_In,#go_Sign_Up{
+    color: #666666;
+    margin-top:15px;
+    cursor: pointer;
+}
+
+
+#black_background{
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+    opacity: 0.3;
+    z-index:99;
+    display: none;
+}
+#signUp_Message{
+    display:none;
+    width: 100%;
+    text-align: center;
+    color: #666666;
+    font-size:18px;
+    font-weight: bold;
+}
+#signIn_Message{
+    display:none;
+    width: 100%;
+    text-align: center;
+    color: #666666;
+    font-size:18px;
+    font-weight: bold;
+}
+
+
+/*主要顯示部分*/
+section{
+    margin-left:10px;
+    margin-right:10px;
+}
+
+
+
+article{
+    padding-top:54px;
+    max-width:1200px;
+    width:100%;
+    margin: auto;
+    z-index:999;
+
+
+}
+
+#data_box{
+    max-width:980px;
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    margin: auto;
+    padding-top:20px;
+    padding-bottom:30px;
+    position: relative;
+}
+#booking_Message_box,#booking_Message_box2{
+    padding-top:20px;
+    max-width:980px;
+    width:100%;
+    margin: auto;
+}
+
+#booking_Message_box2{
+    display:none;
+
+}
+
+#booking_Message{
+    font-size: 19px;
+    line-height:16px;
+    color:#666666;
+    font-weight: bold;
+}
+
+#nothing_message{
+    font-family:'Noto Sans TC';
+    font-size: 16px;
+    line-height: 13px;
+    color: #666666;
+}
+
+#booking_img_box{
+    max-width:290px;
+    width:100%;
+    flex: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#booking_img_box img{
+    width:95%;
+}
+
+
+#booking_name{
+    font-family:'Noto Sans TC';
+    font-size:16px;
+    line-height:13.3px;
+    color:#448899;
+    margin:0px;
+    margin-bottom:30px;
+}
+
+
+
+.booking_info{
+    font-family:'Noto Sans TC';
+    font-size: 16px;
+    line-height: 13px;
+    font-weight: bold;
+    color: #666666;
+    padding-bottom:20px;
+    
+}
+
+#delete_booking{
+    position: absolute;
+    right:10px;
+    top:10px;
+}
+
+.booking_detail{
+    padding-left:5px;
+    display: inline-block;
+    font-family:'Noto Sans TC';
+    font-size: 16px;
+    line-height: 20px;
+    color: #666666;
+    margin:0px;
+}
+
+
+hr{
+    max-width:1200px;
+    width:100%;
+    border: 1px solid #E8E8E8;
+}
+
+#contact_form_box{
+    max-width:980px;
+    width:100%;
+    margin: auto;
+    padding-top:40px;
+    padding-bottom:40px;
+}
+
+#contact_form_box h3{
+    width:100%;
+}
+
+#contact_form_box h4{
+    font-family:'Noto Sans TC';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #666666;
+
+}
+
+article input{
+    font-family:'Noto Sans TC';
+    margin-bottom:20px;
+    font-size: 16px;
+    line-height:13px;
+    border-radius:5px;
+    padding:10px;
+    border: 1px solid #E8E8E8;
+}
+
+
+
+
+#payment_box{
+    max-width:980px;
+    width:100%;
+    margin: auto;
+    padding-top:40px;
+    padding-bottom:40px;
+}
+
+#check_box{
+    max-width:980px;
+    width:100%;
+    height:100px;
+    margin: auto;
+    position: relative;
+    padding-top:50px;
+    padding-bottom:100px;
+}
+
+#check_box div{
+    position: absolute;
+    right:12px;
+    top:40px;
+    font-weight: bold;
+    font-size:16px;
+    font-family:'Noto Sans TC';
+}
+#check_box button{
+    position: absolute;
+    right:10px;
+    top:80px;
+    font-size:19px;
+    line-height:16px;
+    color: #FFFFFF;
+    background-color:#448899;
+    border-radius:5px;
+    padding:10px 20px;
+    border:none;
+    font-family:'Noto Sans TC';
+}
+
+article h3{
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 16px;
+    font-family:'Noto Sans TC';
+}
+
+
+
+@media (max-width:650px){
+
+    #booking_img_box{
+        max-width:400px;
+        width:100%;
+        margin:auto;
+    }
+
+    #booking_img_box img{
+        width:100%;
+    }
+
+    #booking_form_box{
+        margin-top:30px;
+    }
+
+    #delete_booking{
+        top:530px;
+        right:40px
+    }
+}
+
+
+
+@media (max-width:420px){
+
+    #booking_img_box{
+        max-width:340px;
+        width:100%;
+        margin:auto;
+    }
+
+    #booking_img_box img{
+        width:100%;
+    }
+
+    #booking_form_box{
+        margin-top:30px;
+    }
+
+    #delete_booking{
+        top:500px;
+        right:0px;
+    }
+}

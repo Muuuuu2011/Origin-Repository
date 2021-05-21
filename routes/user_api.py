@@ -1,19 +1,23 @@
 from flask import *
 import json
 import mysql.connector
+from mysql.connector import pooling
 import time
 user_api = Blueprint('user_api',__name__)
 
 
 # 資料庫參數設定
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="Chickenbot2011_",
-  database="website"
+connection_pool = mysql.connector.pooling.MySQLConnectionPool(
+        pool_name = 'MySQLPool',
+        pool_size = 5,
+        host = "localhost",
+        user = "admin",
+        password = "1234",
+        database = "website"
 )
-
-mycursor = mydb.cursor()
+ 
+mydb = connection_pool.get_connection()
+mycursor = mydb.cursor(buffered=True)
 
 
 
@@ -67,11 +71,11 @@ def user():
 
         #sign out 使用者登出 刪除cookies https://www.maxlist.xyz/2019/05/11/flask-cookie/
         elif request.method=="DELETE":
-            session.pop("email")
+            session.clear()
             return json.dumps({"ok":True}),200
 
         #check user status 檢查登入狀態 取得cookies https://www.maxlist.xyz/2019/05/11/flask-cookie/
-        else:
+        elif request.method=="GET":
             check_user_status =  session.get('email')
             if check_user_status !=None:
                 mycursor.execute("SELECT * FROM user_data WHERE email = %s",(check_user_status,))

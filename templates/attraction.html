@@ -12,7 +12,7 @@
                 <nav>
                     <div id=title-box>
                         <h3 id=title>台北一日遊</h3>
-                        <div class=menu>預定行程</div>
+                        <div class=menu id="booking_Schedule">預定行程</div>
                         <div id=signin_signup class=menu>登入/註冊
                         </div>
                         <div id=sign_out class=menu>登出系統
@@ -22,8 +22,8 @@
                                 <div class=main><!--父層與子層會互相影響，如果放在登入註冊之下，監聽事件會相互連動-->
                                     <p class=sign_title>登入會員帳號</p>
                                     <img class=cancel_btn id=cancel_btn1 src="/static/images/Dialog/icon/icon_close.png">
-                                    <input id=sign_In_email class=keyin type="text" placeholder="  輸入電子信箱">
-                                    <input id=sign_In_password class=keyin type="text" placeholder="  輸入密碼">
+                                    <input id=sign_In_email class=keyin type="email" placeholder="  輸入電子信箱">
+                                    <input id=sign_In_password class=keyin type="password" placeholder="  輸入密碼">
                                     <button id=signIn_button class=user_btn onclick="click">登入帳戶</button>
                                     <p class="userText">還沒有帳戶?<div id=go_Sign_Up> 點此註冊</div></p>
                                     <p id=signIn_Message></p>
@@ -35,8 +35,8 @@
                                 <p class=sign_title>註冊會員帳號
                                 <img class=cancel_btn id=cancel_btn2 src="/static/images/Dialog/icon/icon_close.png" ></p>
                                 <input  id=sign_Up_name class=keyin type="text" placeholder="  輸入姓名">
-                                <input id=sign_Up_email class=keyin type="text" placeholder="  輸入電子郵件">
-                                <input id=sign_Up_password class=keyin type="text" placeholder="  輸入密碼">
+                                <input id=sign_Up_email class=keyin type="email" placeholder="  輸入電子郵件">
+                                <input id=sign_Up_password class=keyin type="password" placeholder="  輸入密碼">
                                 <button id=signUp_button class=user_btn onclick="click">註冊新帳戶</button>
                                 <p class="userText">已經有帳戶了?</p><div id=go_Sign_In> 點此登入</div>
                                 <p id=signUp_Message></p>
@@ -63,17 +63,17 @@
                             <p class="note">以此景點為中心的一日行程，帶您探索城市角落故事</p>
                             <div>
                                 <p class="choose">選擇日期：
-                                <input type="date" class="choose_date">
+                                <input type="date" class="choose_date" id="choose_date">
                                 </p>
                             </div>
                             <div class="choose_box">
                                 <p class="choose">選擇時間： 
                                 <label class="container">上半天
-                                    <input type="radio" name="radio" value="1" checked="checked" id="radio1">
+                                    <input type="radio" name="radio" value="2000" checked="checked" id="radio1">
                                     <span class="checkmark"></span>
                                     </label>
                                     <label class="container">下半天
-                                    <input type="radio" name="radio" value="2" id="radio2">
+                                    <input type="radio" name="radio" value="2500" id="radio2">
                                     <span class="checkmark"></span>
                                     </label>
                                 </p>
@@ -88,7 +88,7 @@
                                 </div>    
                                 </p>
                             </div>
-                            <button>開始預訂行程</button>
+                            <button id="start_Booking_btn">開始預訂行程</button>
                         </div>
                     </div>
                 </div>
