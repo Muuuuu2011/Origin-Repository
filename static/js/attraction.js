@@ -1,9 +1,12 @@
 var items;
 load_data();
 function load_data(){
+  //設定input日期:只能從明天開始預訂
+  getToday();
+
   //取得ID
   let getID = location.pathname.split('/')
-  console.log(getID)
+  //console.log(getID)
   getID=parseInt(getID[2])
   
   if(getID<=319&&getID>0){
@@ -25,6 +28,24 @@ function load_data(){
     
   });
 
+}
+
+function getToday(){
+  //讓input日期最小值=明天
+  let tomorrow = new Date();
+  let dd = tomorrow.getDate()+1;//只能預定明天之後的時間
+  let mm = tomorrow.getMonth()+1;//因為1月是0所以要+1，不然月份會少1
+  let yyyy = tomorrow.getUTCFullYear();
+  //當日&月小於10的時候，為了符合date格式，必須要在前面補0
+  if(dd<10){ 
+    dd='0'+dd 
+  } 
+  if(mm<10){ 
+    mm='0'+mm 
+  } 
+  tomorrow=yyyy+"-"+mm+"-"+dd
+  document.getElementById("choose_date").value=tomorrow
+  document.getElementById("choose_date").setAttribute("min",tomorrow)
 }
 
 

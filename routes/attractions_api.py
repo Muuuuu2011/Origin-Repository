@@ -1,6 +1,8 @@
 from flask import *
 import json
 import mysql.connector
+from mysql.connector import pooling
+from mysql.connector import Error
 
 attractions_api = Blueprint('attractions_api',__name__)
 
@@ -8,20 +10,20 @@ attractions_api = Blueprint('attractions_api',__name__)
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
         pool_size = 5,
+		pool_reset_session=True,
         host = "localhost",
-        user = "root",
-        password = "Chickenbot2011_",
+        user = "admin",
+        password = "1234",
         database = "website"
 )
- 
-mydb = connection_pool.get_connection()
-mycursor = mydb.cursor(buffered=True)
+
 
 
 @attractions_api.route("/api/attractions")
 def attractions():
 	try:
-
+		mydb = connection_pool.get_connection()
+		mycursor = mydb.cursor(buffered=True)
 		page = int(request.args.get("page"))
 		keyword = request.args.get("keyword")
 
@@ -65,13 +67,16 @@ def attractions():
 						"error":True,
 						"message":"查無資料"
 					}
+					mydb.close()
 					return json.dumps(result),500
+				mydb.close()	
 				return json.dumps({"nextPage":next_Page,"data":list1}),200
 			else:
 				result={
 					"error":True,
 					"message":"查無資料"
 				}
+				mydb.close()
 				return json.dumps(result),500 
 				
 		else:
@@ -113,7 +118,9 @@ def attractions():
 						"error":True,
 						"message":"查無資料"
 					}
+					mydb.close()
 					return json.dumps(result),500
+			mydb.close()		
 			return json.dumps({"nextPage":next_Page,"data":list1}),200
 	except:
 		result={

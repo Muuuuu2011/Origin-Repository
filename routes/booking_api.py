@@ -2,6 +2,7 @@ from flask import *
 import json
 import mysql.connector
 from mysql.connector import pooling
+from mysql.connector import Error
 
 booking_api = Blueprint('booking_api',__name__)
 
@@ -11,19 +12,20 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
         pool_size = 5,
         host = "localhost",
-        user = "root",
-        password = "Chickenbot2011_",
+        pool_reset_session=True,
+        user = "admin",
+        password = "1234",
         database = "website"
 )
- 
-mydb = connection_pool.get_connection()
-mycursor = mydb.cursor(buffered=True)
+
 
 
 
 @booking_api.route("/api/booking",methods=["GET", "POST", "DELETE"])
 def booking():
     try:
+        mydb = connection_pool.get_connection()
+        mycursor = mydb.cursor(buffered=True)
         #取得使用者狀態
         check_user_status =  session.get('email')
         #建立預定行程
@@ -76,6 +78,7 @@ def booking():
                             "price":session["booking"]["price"]
                         }
                     }
+                    mydb.close()
                     return json.dumps(booking_result),200
             
 
