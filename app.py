@@ -14,10 +14,10 @@ from routes.booking_api import booking_api
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
         pool_size = 5,
-        pool_reset_session=True,
         host = "localhost",
-        user = "admin",
-        password = "1234",
+        pool_reset_session=True,
+        user = "root",
+        password = "Chickenbot2011_",
         database = "website"
 )
 mydb = connection_pool.get_connection()
@@ -53,4 +53,4 @@ app.register_blueprint(user_api)
 app.register_blueprint(booking_api)
 
 
-app.run(port=3000)
+app.run(hots="0.0.0.0",port=3000)

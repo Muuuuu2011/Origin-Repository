@@ -10,13 +10,12 @@ attractions_api = Blueprint('attractions_api',__name__)
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
         pool_size = 5,
-		pool_reset_session=True,
         host = "localhost",
-        user = "admin",
-        password = "1234",
+        pool_reset_session=True,
+        user = "root",
+        password = "Chickenbot2011_",
         database = "website"
 )
-
 
 
 @attractions_api.route("/api/attractions")
