@@ -1,0 +1,60 @@
+{%extends "base.html" %}
+
+
+    {% block css%}
+        <link rel="stylesheet" href="../static/css-booking.css">
+    {% endblock%}
+        
+    {% block header%}
+        <section>
+            <article >
+                <div id="attractions-box">
+                    <div id="booking_Message_box">      
+                        <p id="booking_Message"></p> 
+                        <p id="nothing_message"></p>
+                    </div>
+                    <div id="booking_Message_box2">       
+                        <p id="nothing_message"></p>
+                    </div>
+                    <div id="big_data_box">
+                        <div id="data_box">
+                            <div  id="booking_img_box"><!--<img  id="booking_img" src="../static/images/img.png">--></div>
+                            <div id="booking_form_box">
+                                <h2 id="booking_name">台北一日遊：</h2>
+                                <div class="booking_info">日期：<P class="booking_detail" id="booking_detail1"></P></div>
+                                <div class="booking_info">時間：<P class="booking_detail" id="booking_detail2"></P></div>
+                                <div class="booking_info">費用：<P class="booking_detail" id="booking_detail3"></P></div>
+                                <div class="booking_info">地點：<P class="booking_detail" id="booking_detail4"></P></div>
+                                <img id="delete_booking" src="../static/images/icon/icon_delete.png" alt="">
+                            </div>
+                        </div>
+                        <hr>
+                        <div id="contact_form_box">
+                            <h3>您的聯絡資訊</h3>
+                            聯絡姓名：<input class="contact_form" id="contact_name" type="text" required="required"><br>
+                            聯絡信箱：<input class="contact_form" id="contact_email" type="text" required="required"><br>
+                            手機號碼：<input class="contact_form" id="contact_phoneNumber" type="text" required="required"><br>
+                            <h4>請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</h4>
+                        </div>
+                        <hr>
+                        <div id="payment_box">
+                            <h3>信用卡付款資訊</h3>
+                            卡片號碼：<input id="bankCard" class="contact_form" type="password" placeholder=" **** **** **** ****" required="required"><br>
+                            過期時間：<input class="contact_form" type="text" placeholder=" MM/YY" required="required"><br>
+                            驗證密碼：<input class="contact_form" type="text" placeholder=" CVV" required="required"><br>
+                        </div>
+                        <hr>
+                        <div id="check_box">
+                            <div id="total_price">總價:</div>
+                            <button id="payment_button">確認訂購並付款</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+    {% endblock%}
+
+    {% block script%}
+        <script src="../static/js/booking.js"></script>
+    {% endblock%}

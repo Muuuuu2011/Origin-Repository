@@ -1,9 +1,12 @@
 var items;
+load_data();
+function load_data(){
+  //設定input日期:只能從明天開始預訂
+  getToday();
 
-window.onload = function (){
   //取得ID
   let getID = location.pathname.split('/')
-  console.log(getID)
+  //console.log(getID)
   getID=parseInt(getID[2])
   
   if(getID<=319&&getID>0){
@@ -18,13 +21,31 @@ window.onload = function (){
     return response.json();
   }).then((data) => {
     // 實際存取到資料
-
     createBox(data);
+    start_Booking(getID)
   }).catch((error) => {
     // 錯誤
     
   });
 
+}
+
+function getToday(){
+  //讓input日期最小值=明天
+  let tomorrow = new Date();
+  let dd = tomorrow.getDate()+1;//只能預定明天之後的時間
+  let mm = tomorrow.getMonth()+1;//因為1月是0所以要+1，不然月份會少1
+  let yyyy = tomorrow.getUTCFullYear();
+  //當日&月小於10的時候，為了符合date格式，必須要在前面補0
+  if(dd<10){ 
+    dd='0'+dd 
+  } 
+  if(mm<10){ 
+    mm='0'+mm 
+  } 
+  tomorrow=yyyy+"-"+mm+"-"+dd
+  document.getElementById("choose_date").value=tomorrow
+  document.getElementById("choose_date").setAttribute("min",tomorrow)
 }
 
 
@@ -144,4 +165,75 @@ function imgControl(data,img){
   }) 
 
 }
+//開始預定行程按鈕
+function start_Booking(getID){
+  let start_Booking_btn=document.getElementById("start_Booking_btn")
+  
+  
+  
+  start_Booking_btn.addEventListener("click",function(){
+    
+    //先檢查是否登入
+    fetch("/api/user")
+    .then((response) => {
+      return response.json();
+    }).then((check_result) => {
+      //console.log(check_result.data)
+      if(check_result.data==null){
+        //取消隱藏的登入表單
+        signIn.style.display = "block"
+        //取消隱藏的背景黑幕
+        back_ground.style.display = "block"
+      }else{
 
+        //取得預定資料
+        let get_date=document.getElementById("choose_date").value
+        if (get_date==""){
+          alert("請選擇日期");
+          return;
+        }
+        let get_time=document.getElementsByName("radio")
+        if (get_time[0].checked==true){
+          time = "morning"
+          price = 2000
+        }else if(get_time[1].checked==true){
+          time = "afternoon"
+          price = 2500
+        }
+        console.log(get_time[0].checked)
+        console.log(getID)
+        console.log(get_date)
+        console.log(time)
+        console.log(price)
+        //呼叫建立預定行程api
+        let data={
+          "attractionId":getID,
+          "date":get_date,
+          "time":time,
+          "price":price
+          }
+        let src ="/api/booking";
+        fetch(src,{
+        method:'POST',
+        body:JSON.stringify(data),
+        headers: new Headers({
+          'Content-Type': 'application/json'
+          })
+        }).then(function(response){
+          return response.json();
+        }).then(function(myJson){
+          if (myJson.ok == true){
+            window.location.replace('/booking');
+          }
+      })
+
+      }
+    }).catch((error) => {
+      // 錯誤
+      
+    });
+
+
+  })
+    
+}
