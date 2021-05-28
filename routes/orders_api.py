@@ -1,85 +1,32 @@
-from re import T, template
-from routes.attractionId_api import attractionsId
+from typing import MutableMapping
 from flask import *
 import json
 import mysql.connector
 from mysql.connector import pooling
-from routes.attractions_api import attractions_api 
-from routes.attractionId_api import attractionId_api
-from routes.user_api import user_api
-from routes.booking_api import booking_api
-# from routes.orders_api import orders_api
+from mysql.connector import Error
+import requests
+import datetime
 from flask_mail import Mail
 from flask_mail import Message
 from threading import Thread
-import requests
-import datetime
 
-#資料庫參數設定
+orders_api = Blueprint('orders_api',__name__)
+
+# mail = Mail(orders_api)
+
+
+# 資料庫參數設定
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
         pool_size = 5,
         host = "localhost",
         pool_reset_session=True,
-        user = "root",
-        password = "Chickenbot2011_",
+        user = "admin",
+        password = "1234",
         database = "website"
 )
 
-
-app=Flask(__name__)
-app.config["JSON_AS_ASCII"]=False
-app.config["TEMPLATES_AUTO_RELOAD"]=True
-app.config['SECRET_KEY'] = 'abc654_@123dda'
-app.config['DEBUG']=True
-app.config['TESTING']=False
-app.config['MAIL_SERVER']='smtp.googlemail.com'
-app.config['MAIL_PORT']=587
-app.config['MAIL_USE_TLS']=True
-app.config['MAIL_USE_SSL']=False
-# app.config['MAIL_DEBUG']=True
-app.config['MAIL_USERNAME']='onedaytaipei@gmail.com'
-app.config['MAIL_PASSWORD']='a123456789A'
-app.config['MAIL_DEFAULT_SENDER']='onedaytaipei@gmail.com'
-app.config['MAIL_MAX_EMAILS']=None
-# app.config['MAIL_SUPPRESS_SEND']=False
-app.config['MAIL_ASCII_ATTACHMENTS']=False
-#  記得先設置參數再做實作mail
-mail = Mail(app)
-
-
-
-# Pages
-@app.route("/")
-def index():
-	return render_template("index.html")
-@app.route("/attraction/<id>")
-def attraction(id):
-	return render_template("attraction.html")
-@app.route("/booking")
-def booking():
-	return render_template("booking.html")
-@app.route("/thankyou")
-def thankyou():
-	return render_template("thankyou.html")
-
-
-#APIs
-#Attractions_api 顯示每12筆景點一頁的api:
-app.register_blueprint(attractions_api)
-#AttractionId_api 查詢指定ID的景點的api:
-app.register_blueprint(attractionId_api)
-#user_api 使用者相關API:註冊、檢查狀態、登入、登出
-app.register_blueprint(user_api)
-#booking_api預定行程API:取得未確認訂單、新預定、刪除目前預定
-app.register_blueprint(booking_api)
-#orders_api付款流程
-# app.register_blueprint(orders_api)
-
-
-
-
-@app.route("/api/orders",methods=["POST"])
+@orders_api.route("/api/orders",methods=["POST"])
 def orders():
         #取得使用者狀態
         check_user_status =  session.get('email')
@@ -150,9 +97,7 @@ def orders():
                 mycursor.execute(sql, val)
                 mydb.commit()
 
-            #查景點資料
-            mycursor.execute("SELECT * FROM attractions_data  WHERE id = %s",(check_Orders["order"]["trip"]["attraction"]["id"],))
-            check_attraction = mycursor.fetchone()
+
 
             if res["status"]==0:
                 mycursor.execute("UPDATE orders_data SET payment_status=(%s)  WHERE order_number =(%s)",("已付款",order_number,))
@@ -165,27 +110,7 @@ def orders():
                             "message": "付款成功"
                         }
                     }
-				}
-                
-
-                if check_Orders["order"]["trip"]["time"] == "morning":
-                    tour_time="早上9點到下午4點"
-                else:
-                    tour_time="下午2點到晚上9點"
-
-                send_mail(
-                    check_Orders,
-                    check_attraction,
-                    orderNumber=order_number,
-                    att_name=check_attraction[1],
-                    date= check_Orders["order"]["trip"]["date"],
-                    time=tour_time,
-                    price=check_Orders["order"]["price"],
-                    address=check_attraction[4],
-                    name=check_Orders["order"]["contact"]["name"],
-                    mail=check_Orders["order"]["contact"]["email"],
-                    phone=check_Orders["order"]["contact"]["phone"],
-                    )
+                }
                 mydb.close()
                 return json.dumps(result),200
             else :
@@ -207,7 +132,7 @@ def orders():
 
 
 
-@app.route("/api/order/<orderNumber>")
+@orders_api.route("/api/order/<orderNumber>")
 def get_Order(orderNumber):
     #取得使用者狀態
     check_user_status =  session.get('email')
@@ -257,6 +182,9 @@ def get_Order(orderNumber):
                 "status": status
             }
         }
+        #print(result)
+        # #郵寄
+        # send_mail()
 
         mydb.close()
         return json.dumps(result),200
@@ -267,24 +195,8 @@ def get_Order(orderNumber):
         }
         mydb.close()
         return json.dumps(result),200
+
     
-#郵件函式
-def send_mail(check_Orders,check_attraction,**kwargs):
-	msg = Message("感謝您預定台北一日遊:"+check_attraction[1], recipients=[ check_Orders["order"]["contact"]["email"]])
-	template="sendmailtest"
+    
 
-	msg.html=render_template(template + '.html',**kwargs)
-	thr = Thread(target=send_async_email, args=[app, msg])
-	thr.start()
-	return "OK"
-
-def send_async_email(app, msg):
-    #  下面有說明
-    with app.app_context():
-        mail.send(msg)
-
-
-
-
-
-app.run(host="0.0.0.0",port=3000,debug=True)
+    

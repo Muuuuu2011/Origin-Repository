@@ -6,7 +6,7 @@ from mysql.connector import Error
 
 attractions_api = Blueprint('attractions_api',__name__)
 
-# 資料庫參數設定
+#資料庫參數設定
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
         pool_size = 5,
@@ -16,7 +16,6 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         password = "Chickenbot2011_",
         database = "website"
 )
-
 
 @attractions_api.route("/api/attractions")
 def attractions():

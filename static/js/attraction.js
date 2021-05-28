@@ -200,11 +200,11 @@ function start_Booking(getID){
           time = "afternoon"
           price = 2500
         }
-        console.log(get_time[0].checked)
-        console.log(getID)
-        console.log(get_date)
-        console.log(time)
-        console.log(price)
+        // console.log(get_time[0].checked)
+        // console.log(getID)
+        // console.log(get_date)
+        // console.log(time)
+        // console.log(price)
         //呼叫建立預定行程api
         let data={
           "attractionId":getID,

@@ -1,0 +1,49 @@
+{%extends "base.html" %}
+
+{% block css%}
+    <link rel="stylesheet" href="../static/css-thankyou.css">
+{% endblock%}
+
+{% block header%}
+    <section>
+        <article >
+            <div id="attractions-box">
+                <div id="thankyou_Message_box">      
+                    <p id="thankyou_Message"></p> 
+                </div>
+                <div id="big_data_box">
+                    <div id="data_box">
+                        <div  id="order_img_box"><!--<img  id="booking_img" src="../static/images/img.png">-->
+                        </div>
+                        <div id="order_form_box">
+                            <h2 id="order_number">訂單編號：</h2>
+                            <h2 id="order_name">台北一日遊：</h2>
+                            <div class="order_info">日期：<P class="order_detail" id="order_detail_date"></P></div>
+                            <div class="order_info">時間：<P class="order_detail" id="order_detail_time"></P></div>
+                            <div class="order_info">費用：<P class="order_detail" id="order_detail_price"></P></div>
+                            <div class="order_info">地點：<P class="order_detail" id="order_detail_address"></P></div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div id="contact_form_box">
+                        <h3>您的聯絡資訊</h3>
+                        <div>
+                            <span>聯絡姓名：</span><p id="contact_name"></p><br>
+                        </div>
+                        <div>
+                            <span>聯絡信箱：</span><p id="contact_email"></p><br>
+                        </div>
+                        <div>
+                            <span>手機號碼：</span><p id="contact_phone"></p><br>
+                        </div>
+                        <h4>請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</h4><br>
+                        <h3>已將訂單信件郵寄至您的信箱，請您至信箱確認，謝謝!</h3>
+                    </div>
+            </div>
+        </article>  
+    </section>                             
+{% endblock%}
+
+{% block script%}
+<script src="../static/js/thankyou.js"></script>
+{% endblock%}

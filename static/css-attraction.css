@@ -17,7 +17,7 @@
     margin-right:30px;
     margin-left:15px;
     position: relative;
-    z-index:-1;
+    
 }
 
 #img_List img{
@@ -57,7 +57,7 @@
     display:flex;
     bottom:10px;
     left:50%;
-    transform:translate(-50%);
+    transform:translate(-70%);
 }
 
 #dot li{

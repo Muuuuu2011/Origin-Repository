@@ -4,7 +4,7 @@ import mysql.connector
 from mysql.connector import pooling
 from mysql.connector import Error
 
-# 資料庫參數設定
+#資料庫參數設定
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
         pool_size = 5,
@@ -14,7 +14,6 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         password = "Chickenbot2011_",
         database = "website"
 )
-
 
 attractionId_api = Blueprint('attractionId_api',__name__)
 

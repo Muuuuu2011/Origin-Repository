@@ -1,0 +1,160 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+
+section{
+    margin-left:10px;
+    margin-right:10px;
+}
+
+
+
+article{
+    padding-top:54px;
+    max-width:1200px;
+    width:100%;
+    margin: auto;
+    
+}
+
+
+#data_box{
+    max-width:980px;
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    margin: auto;
+    padding-top:20px;
+    padding-bottom:30px;
+}
+
+
+#thankyou_Message{
+    font-size: 22px;
+    line-height:16px;
+    color:#666666;
+    font-weight: bold;
+}
+
+#order_img_box{
+    max-width:360px;
+    width:100%;
+    flex: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#order_img_box >img{
+    width:95%;
+}
+
+#order_name{
+    font-family:'Noto Sans TC';
+    font-size:16px;
+    line-height:13.3px;
+    color:#448899;
+    margin:0px;
+    margin-bottom:30px;
+}
+
+
+.order_info{
+    font-family:'Noto Sans TC';
+    font-size: 16px;
+    line-height: 13px;
+    font-weight: bold;
+    color: #666666;
+    padding-bottom:20px;
+    
+}
+
+.order_detail{
+    padding-left:5px;
+    display: inline-block;
+    font-family:'Noto Sans TC';
+    font-size: 16px;
+    line-height: 20px;
+    color: #666666;
+    margin:0px;
+}
+
+
+hr{
+    max-width:1200px;
+    width:100%;
+    border: 1px solid #E8E8E8;
+}
+
+#contact_form_box{
+    max-width:980px;
+    width:100%;
+    margin: auto;
+    padding-top:40px;
+    padding-bottom:40px;
+}
+
+#contact_form_box h3{
+    width:100%;
+}
+
+#contact_form_box >div{
+    display: flex;
+    margin: 10px 0;
+    align-items: center;
+}
+
+#contact_form_box span,#contact_form_box p,#contact_form_box >h4{
+    font-family:'Noto Sans TC';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #666666;
+}
+
+#contact_form_box >h3{
+    font-family:'Noto Sans TC';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 20px;
+    color: #CC0000;
+}
+
+
+@media (max-width:650px){
+
+    #order_img_box{
+        max-width:400px;
+        width:100%;
+        margin:auto;
+    }
+
+    #order_img_box img{
+        width:100%;
+    }
+
+    #order_form_box{
+        margin-top:30px;
+    }
+
+}
+
+
+
+@media (max-width:420px){
+
+    #order_img_box{
+        max-width:340px;
+        width:100%;
+        margin:auto;
+    }
+
+    #order_img_box img{
+        width:100%;
+    }
+
+    #order_form_box{
+        margin-top:30px;
+    }
+
+}

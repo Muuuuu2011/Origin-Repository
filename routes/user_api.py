@@ -7,7 +7,7 @@ from mysql.connector import Error
 
 user_api = Blueprint('user_api',__name__)
 
-# 資料庫參數設定
+#資料庫參數設定
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
         pool_size = 5,
@@ -23,10 +23,11 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
 @user_api.route("/api/user",methods=["GET", "POST", "DELETE", "PATCH"])
 def user():
     try:
-        mydb = connection_pool.get_connection()
-        mycursor = mydb.cursor(buffered=True)
+
         #sign up 註冊使用者
         if request.method=="POST":
+            mydb = connection_pool.get_connection()
+            mycursor = mydb.cursor(buffered=True)
             check_User=request.get_json()#調整格式
 
             if check_User["name"]==""or check_User["email"]=="" or check_User["password"]=="":
@@ -44,11 +45,14 @@ def user():
                     return json.dumps({"ok":True,}),200
 
                 else:
+                    mydb.close()
                     return json.dumps({"error":True,"message":"註冊失敗，重複的 Email 或其他原因"}),400
         
 
         #sign in 使用者登入:
         elif request.method=="PATCH":
+            mydb = connection_pool.get_connection()
+            mycursor = mydb.cursor(buffered=True)
             check_User=request.get_json()
             
             if check_User["email"] == "" or check_User["password"] == "":
@@ -81,6 +85,8 @@ def user():
 
         #check user status 檢查登入狀態 取得cookies https://www.maxlist.xyz/2019/05/11/flask-cookie/
         elif request.method=="GET":
+            mydb = connection_pool.get_connection()
+            mycursor = mydb.cursor(buffered=True)
             check_user_status =  session.get('email')
             if check_user_status !=None:
                 mycursor.execute("SELECT * FROM user_data WHERE email = %s",(check_user_status,))
