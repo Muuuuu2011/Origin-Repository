@@ -6,7 +6,6 @@ import time
 from mysql.connector import Error
 
 user_api = Blueprint('user_api',__name__)
-
 #資料庫參數設定
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         pool_name = 'MySQLPool',
@@ -17,8 +16,6 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         password = "Chickenbot2011_",
         database = "website"
 )
-
-
 
 @user_api.route("/api/user",methods=["GET", "POST", "DELETE", "PATCH"])
 def user():

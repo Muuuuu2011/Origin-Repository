@@ -14,7 +14,6 @@ connection_pool = mysql.connector.pooling.MySQLConnectionPool(
         password = "Chickenbot2011_",
         database = "website"
 )
-
 attractionId_api = Blueprint('attractionId_api',__name__)
 
 @attractionId_api.route("/api/attraction/<attractionId>")
