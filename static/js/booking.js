@@ -197,6 +197,11 @@ let pay_btn=document.getElementById("payment_button")
 pay_btn.addEventListener("click",function(){
         const tappayStatus = TPDirect.card.getTappayFieldsStatus();
 
+        if (document.getElementById("contact_name").value == '' || document.getElementById("contact_email").value =='' || document.getElementById("contact_phoneNumber").value==''){
+            alert('請填入聯絡資訊');
+            return;
+        }
+
         // 確認是否可以 getPrime
         if (tappayStatus.canGetPrime === false) {
             alert('資料有誤，請輸入正確資料 ')
@@ -208,8 +213,8 @@ pay_btn.addEventListener("click",function(){
         // Get prime
         TPDirect.card.getPrime((result) => {
             if (result.status !== 0) {
-                alert('get prime error ' + result.msg)
-                console.log(result.msg)
+                alert('請確認資訊是否正確 ' + result.msg)
+                // console.log(result.msg)
                 return
             }
             console.log('get prime 成功')
@@ -242,7 +247,7 @@ pay_btn.addEventListener("click",function(){
                         alert("付款失敗，請確認資料或其他原因")
                         return
                     }
-                    console.log(data["data"]["number"])
+                    // console.log(data["data"]["number"])
                     window.location.replace('/thankyou?number='+data["data"]["number"]);
 
                 });

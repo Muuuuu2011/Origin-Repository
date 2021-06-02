@@ -1,7 +1,9 @@
-body{
-    margin:0px;
-}
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+html,body{
+    margin:0px;
+    height:100%;
+}
 
 
 nav{
@@ -25,14 +27,19 @@ nav>#title-box{
 #title{
     font-size:30px;font-weight: bold;
     color: #448899;line-height:0px;
+    cursor: pointer;
 }
 
 .menu{
     flex:none;width: 71px;
     font-size:16px;color: #666666;line-height:60px;
+    cursor: pointer;
+}
+.menu:hover{
+    border-bottom:solid 5px #448899;
 }
 
-#sign_out{
+#sign_out,#member{
     display:none;
 }
 
@@ -117,6 +124,29 @@ footer{
     box-sizing: border-box;
     border-radius: 5px;
 }
+#sign_Up_email,#sign_In_email{
+    margin-top:10px;
+    width:160px;
+    height:47px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+#selector_sign_up,#selector_sign_in{
+    margin-top:10px;
+    margin-left:5px;
+    width:145px;
+    height:47px;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+#selector_sing_up >option,#selector_sing_up >option{
+    font-family:'Noto Sans TC';
+    font-size:16px;
+    color:#666666;
+}
+
 .user_btn{
     font-size:19px;
     margin-top:10px;

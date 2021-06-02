@@ -35,6 +35,7 @@ async function Attractions() {
         a.href = "/attraction/" + data1[i].id;
         bigBox.appendChild(a);
         let bigImg = document.createElement("img")//創造一個圖的盒子:可以把圖放進去
+        bigImg.classList.add("bigImg")
         a.appendChild(bigImg);//大箱子裡面有圖的盒子
         let imgName = document.createElement("h5")//創造一個字的盒子:可以把字放進去
         imgName.classList.add("pics-name");//字的盒子裝字進去

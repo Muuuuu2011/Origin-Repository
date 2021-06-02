@@ -11,13 +11,6 @@ window.onload=function (){
             let greeting ="您好，"+check_result.data["name"]+"，非常感謝您的預定，您的行程如下:";
             document.getElementById("thankyou_Message").textContent=greeting;
 
-            // 聯絡資訊姓名、信箱值為使用者資料
-            let name = check_result.data["name"];
-            document.getElementById("contact_name").textContent=name;
-
-            let email = check_result.data["email"];
-            document.getElementById("contact_email").textContent=email;
-
         }
     })
 
@@ -56,6 +49,13 @@ function getData(check_result){
     document.getElementById("order_detail_price").textContent=check_result["data"]["price"];
     //地點
     document.getElementById("order_detail_address").textContent=check_result["data"]["trip"]["attraction"]["address"];
+    //聯絡人姓名
+    document.getElementById("contact_name").textContent=check_result["data"]["contact"]["name"];
+    //聯絡人信箱
+    document.getElementById("contact_email").textContent=check_result["data"]["contact"]["email"];
     //聯絡人手機
     document.getElementById("contact_phone").textContent=check_result["data"]["contact"]["phone"];
+
+
+
 }

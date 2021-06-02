@@ -9,21 +9,21 @@ import datetime
 from flask_mail import Mail
 from flask_mail import Message
 from threading import Thread
+import os
+from dotenv import load_dotenv
 
 orders_api = Blueprint('orders_api',__name__)
 
-# mail = Mail(orders_api)
-
-
-# 資料庫參數設定
+load_dotenv()
+#資料庫參數設定
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
-        pool_name = 'MySQLPool',
-        pool_size = 5,
-        host = "localhost",
+        pool_name = os.getenv('db_pool_name'),
+        pool_size = int(os.getenv('db_pool_size')),
+        host = os.getenv('db_host'),
         pool_reset_session=True,
-        user = "admin",
-        password = "1234",
-        database = "website"
+        user = os.getenv('db_user'),
+        password = os.getenv('db_password'),
+        database = os.getenv('db_name')
 )
 
 @orders_api.route("/api/orders",methods=["POST"])
@@ -182,9 +182,7 @@ def get_Order(orderNumber):
                 "status": status
             }
         }
-        #print(result)
-        # #郵寄
-        # send_mail()
+
 
         mydb.close()
         return json.dumps(result),200
