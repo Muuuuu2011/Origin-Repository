@@ -1,5 +1,5 @@
 {%extends "base.html" %}
-
+    
 
     {% block css%}
         <link rel="stylesheet" href="../static/css-booking.css">
@@ -39,14 +39,23 @@
                         <hr>
                         <div id="payment_box">
                             <h3>信用卡付款資訊</h3>
-                            卡片號碼：<input id="bankCard" class="contact_form" type="password" placeholder=" **** **** **** ****" required="required"><br>
-                            過期時間：<input class="contact_form" type="text" placeholder=" MM/YY" required="required"><br>
-                            驗證密碼：<input class="contact_form" type="text" placeholder=" CVV" required="required"><br>
+                            <div class="card_info">
+                                <label for="card-number">卡片號碼：</label>
+                                <div class="tpfield" id="card-number"></div>
+                            </div>
+                            <div class="card_info">
+                                <label for="card-expiration-date">過期時間：</label>
+                                <div class="tpfield" id="card-expiration-date"></div>
+                            </div>
+                            <div class="card_info">
+                                <label for="card-ccv">驗證密碼：</label>
+                                <div class="tpfield" id="card-ccv"></div>
+                            </div>
                         </div>
                         <hr>
                         <div id="check_box">
                             <div id="total_price">總價:</div>
-                            <button id="payment_button">確認訂購並付款</button>
+                            <button id="payment_button" onclick="click">確認訂購並付款</button>
                         </div>
                     </div>
                 </div>
@@ -56,5 +65,7 @@
     {% endblock%}
 
     {% block script%}
+        <script src="https://js.tappaysdk.com/tpdirect/v5.7.0"></script>
         <script src="../static/js/booking.js"></script>
+        
     {% endblock%}

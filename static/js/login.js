@@ -6,9 +6,11 @@ fetch("/api/user")
     //console.log(check_result.data)
     if(check_result.data!=null){
         document.getElementById("signin_signup").style.display="none";//登入成功後消失，改成顯示登出
+        document.getElementById("member").style.display="block"
         document.getElementById("sign_out").style.display="block"
     }else{
         document.getElementById("signin_signup").style.display="block";
+        document.getElementById("member").style.display="none"
         document.getElementById("sign_out").style.display="none"
     }
   }).catch((error) => {
@@ -64,7 +66,10 @@ go_SignIn_btn.addEventListener('click',function(){
 let signUp_button=document.getElementById("signUp_button")
 signUp_button.addEventListener('click',function(){
   let sign_Up_name = document.getElementById("sign_Up_name").value
-  let sign_Up_email = document.getElementById("sign_Up_email").value
+  //取得下拉式選單的值
+  let email_select = document.getElementById("selector_sign_up").value
+  //輸入值+下拉式選單值=註冊email
+  let sign_Up_email = document.getElementById("sign_Up_email").value + email_select
   let sign_Up_password = document.getElementById("sign_Up_password").value
   let data={"name":sign_Up_name,
             "email":sign_Up_email,
@@ -102,7 +107,11 @@ signUp_button.addEventListener('click',function(){
 //點擊按鈕把"登入"資料送出
 let signIn_button=document.getElementById("signIn_button")
 signIn_button.addEventListener('click',function(){
-  let sign_In_email = document.getElementById("sign_In_email").value
+  //取得下拉式選單的值
+  email_select1 = document.getElementById("selector_sign_in").value
+  //輸入值+下拉式選單值=登入email
+  let sign_In_email = document.getElementById("sign_In_email").value +  email_select1
+  
   let sign_In_password = document.getElementById("sign_In_password").value
   let data={
             "email":sign_In_email,
@@ -134,6 +143,7 @@ signIn_button.addEventListener('click',function(){
         document.getElementById("sign_In_password").value="";
     };
   })
+
 })
 
 //點擊"登出"按鈕
@@ -179,9 +189,17 @@ schedule_btn.addEventListener("click",function(){
   });
 })
 
-//返回首頁
+//點擊台北一日遊返回首頁
 let title_btn=document.getElementById("title")
 title_btn.addEventListener("click",function(){
 
   window.location.replace('/');
+})
+
+
+//
+let history_btn=document.getElementById("member")
+history_btn.addEventListener("click",function(){
+
+  window.location.replace('/history');
 })

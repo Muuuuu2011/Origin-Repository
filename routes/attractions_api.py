@@ -3,18 +3,21 @@ import json
 import mysql.connector
 from mysql.connector import pooling
 from mysql.connector import Error
+import os
+from dotenv import load_dotenv
 
 attractions_api = Blueprint('attractions_api',__name__)
+load_dotenv()
 
-# 資料庫參數設定
+#資料庫參數設定
 connection_pool = mysql.connector.pooling.MySQLConnectionPool(
-        pool_name = 'MySQLPool',
-        pool_size = 5,
-        host = "localhost",
+        pool_name = os.getenv('db_pool_name'),
+        pool_size = int(os.getenv('db_pool_size')),
+        host = os.getenv('db_host'),
         pool_reset_session=True,
-        user = "root",
-        password = "Chickenbot2011_",
-        database = "website"
+        user = os.getenv('db_user'),
+        password = os.getenv('db_password'),
+        database = os.getenv('db_name')
 )
 
 

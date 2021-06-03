@@ -1,14 +1,17 @@
 import json
 import mysql.connector
+import os
+from dotenv import load_dotenv
 
+#讀取env
+load_dotenv()
 # 資料庫參數設定
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="admin",
-  password="1234",
-  database="website"
+  host=os.getenv('db_host'),
+  user=os.getenv('db_user'),
+  password=os.getenv('db_password'),
+  database=os.getenv('db_name')
 )
-
 mycursor = mydb.cursor()
 
 with open("taipei-attractions.json","r",encoding="utf-8") as file:
