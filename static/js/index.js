@@ -72,7 +72,10 @@ async function Attractions() {
 //捲動事件:判定是否載入更多圖
 window.addEventListener('scroll', function (e) {
   //判斷load_complete載入完畢變成true之後才允許繼續觸發事件(否則捲動速度過快時會造成重複載入同一筆資料)
-  if ((window.outerHeight + window.pageYOffset + 10) >= document.body.offsetHeight && load_complete) {
+  console.log(document.body.scrollHeight)
+  console.log(window.pageYOffset)
+  console.log(document.body.offsetHeight)
+  if ((window.pageYOffset + document.body.offsetHeight+300) >= document.body.scrollHeight && load_complete) {
     load_complete = false//轉回false以利之後執行完的判斷
     Attractions()
   }

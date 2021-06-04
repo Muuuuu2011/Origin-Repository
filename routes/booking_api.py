@@ -1,4 +1,5 @@
 from flask import *
+from main import app
 import json
 import mysql.connector
 from mysql.connector import pooling
@@ -78,7 +79,7 @@ def booking():
             else:
                 mycursor.execute("SELECT * FROM booking_data WHERE user_mail =(%s)",(check_user_status,))
                 check_booking_data = mycursor.fetchone()
-                print(check_booking_data)
+                # print(check_booking_data)
                 if (check_booking_data==None):
                     booking_result={
                         "data":None

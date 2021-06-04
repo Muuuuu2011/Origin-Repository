@@ -1,4 +1,5 @@
 from flask import *
+from main import app
 import json
 import mysql.connector
 from mysql.connector import pooling
