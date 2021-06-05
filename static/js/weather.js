@@ -4,7 +4,7 @@ fetch("/api/weather")
     .then((response) => {
         return response.json();
     }).then((check_result) => {
-        console.log(check_result)
+        // console.log(check_result)
         
         weather_data(check_result);
 

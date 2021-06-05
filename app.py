@@ -1,9 +1,5 @@
 from flask import *
 from main import app
-# from re import T, template
-# from flask.json import load
-# import mysql.connector
-# from mysql.connector import pooling
 from routes.attractions_api import attractions_api 
 from routes.attractionId_api import attractionId_api
 from routes.user_api import user_api
@@ -11,27 +7,7 @@ from routes.booking_api import booking_api
 from routes.history_api import history_api
 from routes.orders_api import orders_api
 from routes.weather_api import weather_api
-# from flask_mail import Mail
-# from flask_mail import Message
-# from threading import Thread
-# import requests
-# import datetime
-# import os
-# from dotenv import load_dotenv
-# import re
 
-# load_dotenv()
-
-# #資料庫參數設定
-# connection_pool = mysql.connector.pooling.MySQLConnectionPool(
-#         pool_name = os.getenv('db_pool_name'),
-#         pool_size = int(os.getenv('db_pool_size')),
-#         host = os.getenv('db_host'),
-#         pool_reset_session=True,
-#         user = os.getenv('db_user'),
-#         password = os.getenv('db_password'),
-#         database = os.getenv('db_name')
-# )
 
 
 # Pages
@@ -73,4 +49,4 @@ app.register_blueprint(weather_api)
 
 
 
-app.run(port=3000)
+app.run(host="0.0.0.0",port=3000)

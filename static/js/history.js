@@ -18,7 +18,7 @@ window.onload=function (){
 
 function get_history(result){
 
-    console.log(result["email"])
+    // console.log(result["email"])
 
 
     fetch(`/api/history/${result["email"]}`)
@@ -34,7 +34,7 @@ function get_history(result){
 
 
 function getData(check_result){
-    console.log(check_result.data[0])
+    // console.log(check_result.data[0])
     for (let i = 0; i < check_result.data.length; i++) {
         //圖箱子
         let img_box =document.createElement("div");

@@ -179,7 +179,7 @@ schedule_btn.addEventListener("click",function(){
   .then((response) => {
     return response.json();
   }).then((check_result) => {
-    console.log(check_result.data)
+    // console.log(check_result.data)
     if(check_result.data==null){
 
       if(signIn.style.display=="block"){

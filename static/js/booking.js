@@ -91,7 +91,7 @@ function booking_content(booking_result){
             "time": booking_result.data["time"]
         }
     }
-    console.log(attraction_data.price,attraction_data.trip)
+    // console.log(attraction_data.price,attraction_data.trip)
 }
 
 let delete_btn = document.getElementById("delete_booking")
