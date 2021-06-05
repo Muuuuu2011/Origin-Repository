@@ -4,8 +4,13 @@ html,body{
     margin:0px;
     height:100%;
     scroll-behavior: smooth;
+    
 }
-
+body{
+    display: flex;
+    flex-direction: column;
+    
+}
 
 
 
@@ -54,7 +59,6 @@ nav>#title-box{
 footer{
     background: #757575;
     display:flex;
-    height: 100px;
     flex-grow:1;
    justify-content:center;
 }

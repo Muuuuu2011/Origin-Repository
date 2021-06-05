@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="stylesheet" href="../static/style.css">
         {% block css %}{% endblock %}
         <title> Taipei Trip 台北一日遊</title>
@@ -62,14 +62,15 @@
                 </div>
 
                 {% block header %}{% endblock %}
+
             </header>
-           
             <footer id=footer>
-                
-                    <p class="copyright">COPYRIGHT © 2021 台北一日遊</p>
-                
-            </footer>
-               
+                    
+                <p class="copyright">COPYRIGHT © 2021 台北一日遊</p>
+            
+            </footer>    
+
+              
             <script src="../static/js/login.js"></script><!--登入與註冊表單功能-->
             {% block script%}{% endblock%}
     </body>

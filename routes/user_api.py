@@ -1,10 +1,10 @@
 from flask import *
-from main import app
+# from main import app
 import json
 import mysql.connector
-from mysql.connector import pooling
-import time
-from mysql.connector import Error
+# from mysql.connector import pooling
+# import time
+# from mysql.connector import Error
 import os
 from dotenv import load_dotenv
 import re
