@@ -75,7 +75,7 @@ window.addEventListener('scroll', function (e) {
   console.log(document.body.scrollHeight)
   console.log(window.pageYOffset)
   console.log(document.body.offsetHeight)
-  if ((window.pageYOffset + document.body.offsetHeight+300) >= document.body.scrollHeight && load_complete) {
+  if ((window.pageYOffset + document.body.offsetHeight+100) >= document.body.scrollHeight && load_complete) {
     load_complete = false//轉回false以利之後執行完的判斷
     Attractions()
   }

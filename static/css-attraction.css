@@ -1,13 +1,45 @@
-
+section{
+    padding-top: 54px;
+}
 
 /*section*/
 #profile{
     max-width:1200px;
     width:100%;
-    padding-top:94px;
+    padding-top:25px;
     margin: auto;
     display:flex;
     
+}
+#weather_1{
+    margin: auto;
+    max-width:1200px;
+    width:100%;
+}
+#weather_box{
+    /* position: absolute; */
+    display:flex;  
+    height:50px; 
+    margin-left:5px;
+    margin-right:5px;
+    vertical-align: middle;
+    background-color:#448899;
+    border-radius: 5px;
+}
+.weather{
+    display: flex;
+    margin: auto;
+}
+.weather >img{
+    width:45px;
+    height:45px;
+    padding-top:30px;
+}
+.weather >p{
+    width:40px;
+    font-size:17px;
+    color: #FFFFFF;
+    /* font-weight: bold; */
 }
 
 #img_List{
@@ -17,6 +49,7 @@
     margin-right:30px;
     margin-left:15px;
     position: relative;
+    
     
 }
 
@@ -301,4 +334,8 @@ article p{
     #right_arrow{   
         top:46%;
     }
+    #weather_1{
+        display:none;
+    }
+
 }

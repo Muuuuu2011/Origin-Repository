@@ -6,12 +6,12 @@ fetch("/api/user")
     //console.log(check_result.data)
     if(check_result.data!=null){
         document.getElementById("signin_signup").style.display="none";//登入成功後消失，改成顯示登出
-        document.getElementById("member").style.display="block"
-        document.getElementById("sign_out").style.display="block"
+        document.getElementById("member").style.display="block";
+        document.getElementById("sign_out").style.display="block";
     }else{
         document.getElementById("signin_signup").style.display="block";
-        document.getElementById("member").style.display="none"
-        document.getElementById("sign_out").style.display="none"
+        document.getElementById("member").style.display="none";
+        document.getElementById("sign_out").style.display="none";
     }
   }).catch((error) => {
     // 錯誤
@@ -19,26 +19,32 @@ fetch("/api/user")
   });
 
 
-let signIn = document.getElementById("signIn")
-let back_ground = document.getElementById("black_background")
+let signIn = document.getElementById("signIn");
+let back_ground = document.getElementById("black_background");
 //點擊觸發登入表單
-login_btn = document.getElementById("signin_signup")
+login_btn = document.getElementById("signin_signup");
 login_btn.addEventListener('click', function () {
+
+  if (signIn.style.display=="block"){
+    signIn.style.display = "none";
+    back_ground.style.display = "none";
+  }else{
   //取消隱藏的登入表單
   signIn.style.display = "block"
   //取消隱藏的背景黑幕
   back_ground.style.display = "block"
+  }
 })
 
 //點擊X或背景黑幕讓登入表單&黑幕隱藏
-let cancel_btn_1 = document.getElementById("cancel_btn1")
-let cancel_btn_2 = document.getElementById("cancel_btn2")
-back_ground.addEventListener('click',cancel,false)
-cancel_btn2.addEventListener('click',cancel)
-cancel_btn1.addEventListener('click',cancel)
+let cancel_btn_1 = document.getElementById("cancel_btn1");
+let cancel_btn_2 = document.getElementById("cancel_btn2");
+back_ground.addEventListener('click',cancel,false);
+cancel_btn2.addEventListener('click',cancel);
+cancel_btn1.addEventListener('click',cancel);
 function cancel(){
-  signIn.style.display="none"
-  back_ground.style.display="none"
+  signIn.style.display="none";
+  back_ground.style.display="none";
   signUp.style.display="none";
   document.getElementById("signIn_Message").style.display="none";//登入訊息提示框隱藏
   document.getElementById("signUp_Message").style.display="none";//註冊訊息提示框隱藏
@@ -46,8 +52,8 @@ function cancel(){
 
 
 //點擊"點此註冊"顯示註冊表單
-let signUp=document.getElementById("signUp")
-let go_SignUp_btn=document.getElementById("go_Sign_Up")
+let signUp=document.getElementById("signUp");
+let go_SignUp_btn=document.getElementById("go_Sign_Up");
 go_SignUp_btn.addEventListener('click',function(){
   signUp.style.display="block";
   back_ground.style.display="block"
@@ -59,18 +65,18 @@ let go_SignIn_btn=document.getElementById("go_Sign_In")
 go_SignIn_btn.addEventListener('click',function(){
   signIn.style.display="block";
   signUp.style.display="none";
-  back_ground.style.display="block"
+  back_ground.style.display="block";
 })
 
 //點擊按鈕把"註冊"資料送出
-let signUp_button=document.getElementById("signUp_button")
+let signUp_button=document.getElementById("signUp_button");
 signUp_button.addEventListener('click',function(){
-  let sign_Up_name = document.getElementById("sign_Up_name").value
+  let sign_Up_name = document.getElementById("sign_Up_name").value;
   //取得下拉式選單的值
-  let email_select = document.getElementById("selector_sign_up").value
+  let email_select = document.getElementById("selector_sign_up").value;
   //輸入值+下拉式選單值=註冊email
-  let sign_Up_email = document.getElementById("sign_Up_email").value + email_select
-  let sign_Up_password = document.getElementById("sign_Up_password").value
+  let sign_Up_email = document.getElementById("sign_Up_email").value + email_select;
+  let sign_Up_password = document.getElementById("sign_Up_password").value;
   let data={"name":sign_Up_name,
             "email":sign_Up_email,
             "password":sign_Up_password
@@ -166,7 +172,7 @@ logout_btn.addEventListener("click",function(){
       })
 })
 
-
+//預定行程按鈕
 let schedule_btn=document.getElementById("booking_Schedule")
 schedule_btn.addEventListener("click",function(){
   fetch("/api/user")
@@ -176,10 +182,15 @@ schedule_btn.addEventListener("click",function(){
     console.log(check_result.data)
     if(check_result.data==null){
 
+      if(signIn.style.display=="block"){
+        signIn.style.display = "none"
+        back_ground.style.display = "none"
+      }else{
       //取消隱藏的登入表單
       signIn.style.display = "block"
       //取消隱藏的背景黑幕
       back_ground.style.display = "block"
+      }
     }else{
       window.location.replace('/booking');
     }
