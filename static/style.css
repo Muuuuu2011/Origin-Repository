@@ -3,11 +3,10 @@
 html,body{
     margin:0px;
     height:100%;
-}
-
-html{
     scroll-behavior: smooth;
 }
+
+
 
 
 nav{
@@ -192,8 +191,7 @@ footer >p{
     height: 100%;
     opacity: 0.3;
     z-index:100;
-    display: none;  
-    overflow-x: hidden; 
+    display: none;   
 }
 
 
