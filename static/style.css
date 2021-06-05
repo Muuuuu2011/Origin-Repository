@@ -57,21 +57,24 @@ nav>#title-box{
 
 
 footer{
+    position: relative;
+    top:54px;
     background: #757575;
     display:flex;
     flex-grow:1;
    justify-content:center;
 }
-footer >p{
-    padding-top:25px;
-}
 
 .copyright{
     color: #FFFFFF;
+    padding-top:25px;
 }
 
 /*登入/註冊彈出框*/
-
+header{
+    position: relative;
+    top:54px
+}
 #signIn{
     display:none;
     position:fixed;
