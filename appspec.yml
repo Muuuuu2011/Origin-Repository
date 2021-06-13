@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destintion: /home/ubuntu/deployTest
+    destination: /home/ubuntu/deployTest
 hooks:
   BeforeInstall:
     - location: Scripts/installTest.sh
