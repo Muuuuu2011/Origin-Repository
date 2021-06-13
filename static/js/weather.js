@@ -50,10 +50,8 @@ fetch("/api/weather")
                 div_box.appendChild(word);
                 div_box.appendChild(weather_img);
                 weather_box.appendChild(div_box);
-               
 
-            }else if(data[i]["elementValue"]["1"]["value"]=="04" | data[i]["elementValue"]["1"]["value"]=="05" | data[i]["elementValue"]["1"]["value"]== "06" | data[i]["elementValue"]["1"]["value"]=="07"){
-                
+            }else if(data[i]["elementValue"]["1"]["value"]=="04" | data[i]["elementValue"]["1"]["value"]=="05" | data[i]["elementValue"]["1"]["value"]== "06" | data[i]["elementValue"]["1"]["value"]=="07"){     
                 let weather_img=document.createElement("img");
                 weather_img.src="https://img.icons8.com/plasticine/100/000000/foggy-night-1.png"
                 let weather_box=document.getElementById("weather_box");
@@ -65,7 +63,6 @@ fetch("/api/weather")
                 div_box.appendChild(word);
                 div_box.appendChild(weather_img);
                 weather_box.appendChild(div_box);
-
             }else{
                 let weather_img=document.createElement("img");
                 weather_img.src="https://img.icons8.com/plasticine/100/000000/rain.png"
@@ -79,8 +76,6 @@ fetch("/api/weather")
                 div_box.appendChild(weather_img);
                 weather_box.appendChild(div_box);
             }
-
-
         }
 
     }
