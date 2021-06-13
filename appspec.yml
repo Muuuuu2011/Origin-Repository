@@ -3,6 +3,6 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/deployTest
-hooks:
-  BeforeInstall:
-    - location: Scripts/installTest.sh
+# hooks:
+#   BeforeInstall:
+#     - location: Scripts/installTest.sh
